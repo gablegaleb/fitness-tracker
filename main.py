@@ -25,15 +25,16 @@ while True:
         datum = date.today()
         trening["naziv_tr"] = naziv_unos
         trening["datum_tr"] = datum
-        print(f"naziv: {trening['naziv_tr']}")
-        print(f"datum: {trening['datum_tr']}")
         treninzi.append(trening)
 
     elif opcija == "2":
         print("Odabrano: Prikaži treninge")
-        for trening in treninzi:
-            for ime, podatak in trening:
-                print(ime, podatak)
+        for broj, trening in enumerate(treninzi, start=1):
+            for stavka, podatak in trening.items():
+                if stavka == "naziv_tr":
+                    print(f"Trening {broj} {podatak}")
+                elif stavka == "datum_tr":
+                    print(f"Datum: {podatak}\n")
             #print(trening)
 
     elif opcija == "3":
